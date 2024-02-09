@@ -96,7 +96,7 @@ def cleanup_models():
     # somehow auto-register and just do these things...
     root_path = script_path
     src_path = models_path
-    dest_path = os.path.join(models_path, "Stable-diffusion")
+    dest_path = os.path.join(models_path, "SD")
     move_files(src_path, dest_path, ".ckpt")
     move_files(src_path, dest_path, ".safetensors")
     src_path = os.path.join(root_path, "ESRGAN")
