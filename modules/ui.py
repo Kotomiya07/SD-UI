@@ -1127,7 +1127,7 @@ def create_ui():
                 if ifid not in ["extensions", "settings"]:
                     loadsave.add_block(interface, ifid)
 
-            loadsave.add_component(f"webui/Tabs@{tabs.elem_id}", tabs)
+            loadsave.add_component(f"ui/Tabs@{tabs.elem_id}", tabs)
 
             loadsave.setup_ui()
 

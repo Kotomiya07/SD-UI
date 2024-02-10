@@ -15,13 +15,13 @@ __pycache__
 /outputs
 /config.json
 /log
-/webui.settings.bat
+/ui.settings.bat
 /embeddings
 /styles.csv
 /params.txt
 /styles.csv.bak
-/webui-user.bat
-/webui-user.sh
+/ui-user.bat
+/ui-user.sh
 /interrogate
 /user.css
 /.idea

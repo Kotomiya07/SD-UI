@@ -24,7 +24,7 @@ except ImportError:
 
 def setup_logging(loglevel):
     if loglevel is None:
-        loglevel = os.environ.get("SD_WEBUI_LOG_LEVEL")
+        loglevel = os.environ.get("SD_ui_LOG_LEVEL")
 
     loghandlers = []
 

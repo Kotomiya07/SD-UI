@@ -43,7 +43,7 @@ shared.options_templates.update(shared.options_section(('extra_networks', "Extra
 
 
 shared.options_templates.update(shared.options_section(('compatibility', "Compatibility"), {
-    "lora_functional": shared.OptionInfo(False, "Lora/Networks: use old method that takes longer when you have multiple Loras active and produces same results as kohya-ss/sd-webui-additional-networks extension"),
+    "lora_functional": shared.OptionInfo(False, "Lora/Networks: use old method that takes longer when you have multiple Loras active and produces same results as kohya-ss/sd-ui-additional-networks extension"),
 }))
 
 

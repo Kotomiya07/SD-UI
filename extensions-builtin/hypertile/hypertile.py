@@ -316,7 +316,7 @@ def self_attn_forward(params: HypertileParams, scale_depth=True) -> Callable:
 
 
 def hypertile_hook_model(model: nn.Module, width, height, *, enable=False, tile_size_max=128, swap_size=1, max_depth=3, is_sdxl=False):
-    hypertile_layers = getattr(model, "__webui_hypertile_layers", None)
+    hypertile_layers = getattr(model, "__ui_hypertile_layers", None)
     if hypertile_layers is None:
         if not enable:
             return
@@ -328,7 +328,7 @@ def hypertile_hook_model(model: nn.Module, width, height, *, enable=False, tile_
             for layer_name, module in model.named_modules():
                 if any(layer_name.endswith(try_name) for try_name in layers[depth]):
                     params = HypertileParams()
-                    module.__webui_hypertile_params = params
+                    module.__ui_hypertile_params = params
                     params.forward = module.forward
                     params.depth = depth
                     params.layer_name = layer_name
@@ -336,14 +336,14 @@ def hypertile_hook_model(model: nn.Module, width, height, *, enable=False, tile_
 
                     hypertile_layers[layer_name] = 1
 
-        model.__webui_hypertile_layers = hypertile_layers
+        model.__ui_hypertile_layers = hypertile_layers
 
     aspect_ratio = width / height
     tile_size = min(largest_tile_size_available(width, height), tile_size_max)
 
     for layer_name, module in model.named_modules():
         if layer_name in hypertile_layers:
-            params = module.__webui_hypertile_params
+            params = module.__ui_hypertile_params
 
             params.tile_size = tile_size
             params.swap_size = swap_size
