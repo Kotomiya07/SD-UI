@@ -588,7 +588,7 @@ def save_image(image, path, basename, seed=None, prompt=None, extension='png', i
             Additional PNG info. `existing_info == {pngsectionname: info, ...}`
         no_prompt:
             TODO I don't know its meaning.
-        p (`StableDiffusionProcessing`)
+        p (`SDProcessing`)
         forced_filename (`str`):
             If specified, `basename` and filename pattern will be ignored.
         save_to_dirs (bool):

@@ -3,7 +3,7 @@ import inspect
 from pydantic import BaseModel, Field, create_model
 from typing import Any, Optional, Literal
 from inflection import underscore
-from modules.processing import StableDiffusionProcessingTxt2Img, StableDiffusionProcessingImg2Img
+from modules.processing import SDProcessingTxt2Img, SDProcessingImg2Img
 from modules.shared import sd_upscalers, opts, parser
 
 API_NOT_ALLOWED = [
@@ -97,9 +97,9 @@ class PydanticModelGenerator:
         DynamicModel.__config__.allow_mutation = True
         return DynamicModel
 
-StableDiffusionTxt2ImgProcessingAPI = PydanticModelGenerator(
-    "StableDiffusionProcessingTxt2Img",
-    StableDiffusionProcessingTxt2Img,
+SDTxt2ImgProcessingAPI = PydanticModelGenerator(
+    "SDProcessingTxt2Img",
+    SDProcessingTxt2Img,
     [
         {"key": "sampler_index", "type": str, "default": "Euler"},
         {"key": "script_name", "type": str, "default": None},
@@ -110,9 +110,9 @@ StableDiffusionTxt2ImgProcessingAPI = PydanticModelGenerator(
     ]
 ).generate_model()
 
-StableDiffusionImg2ImgProcessingAPI = PydanticModelGenerator(
-    "StableDiffusionProcessingImg2Img",
-    StableDiffusionProcessingImg2Img,
+SDImg2ImgProcessingAPI = PydanticModelGenerator(
+    "SDProcessingImg2Img",
+    SDProcessingImg2Img,
     [
         {"key": "sampler_index", "type": str, "default": "Euler"},
         {"key": "init_images", "type": list, "default": None},

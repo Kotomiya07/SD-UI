@@ -12,7 +12,7 @@ import modules.scripts as scripts
 import gradio as gr
 
 from modules import images, sd_samplers, processing, sd_models, sd_vae, sd_samplers_kdiffusion, errors
-from modules.processing import process_images, Processed, StableDiffusionProcessingTxt2Img
+from modules.processing import process_images, Processed, SDProcessingTxt2Img
 from modules.shared import opts, state
 import modules.shared as shared
 import modules.sd_samplers
@@ -124,7 +124,7 @@ def apply_vae(p, x, xs):
     modules.sd_vae.reload_vae_weights(shared.sd_model, vae_file=find_vae(x))
 
 
-def apply_styles(p: StableDiffusionProcessingTxt2Img, x: str, _):
+def apply_styles(p: SDProcessingTxt2Img, x: str, _):
     p.styles.extend(x.split(','))
 
 
@@ -637,7 +637,7 @@ class Script(scripts.Script):
         else:
             total_steps = p.steps * len(xs) * len(ys) * len(zs)
 
-        if isinstance(p, StableDiffusionProcessingTxt2Img) and p.enable_hr:
+        if isinstance(p, SDProcessingTxt2Img) and p.enable_hr:
             if x_opt.label == "Hires steps":
                 total_steps += sum(xs) * len(ys) * len(zs)
             elif y_opt.label == "Hires steps":

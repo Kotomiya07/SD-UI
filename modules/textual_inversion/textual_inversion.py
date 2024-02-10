@@ -585,7 +585,7 @@ def train_embedding(id_task, embedding_name, learn_rate, batch_size, gradient_st
 
                     shared.sd_model.first_stage_model.to(devices.device)
 
-                    p = processing.StableDiffusionProcessingTxt2Img(
+                    p = processing.SDProcessingTxt2Img(
                         sd_model=shared.sd_model,
                         do_not_save_grid=True,
                         do_not_save_samples=True,

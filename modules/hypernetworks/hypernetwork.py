@@ -686,7 +686,7 @@ def train_hypernetwork(id_task, hypernetwork_name: str, learn_rate: float, batch
                     shared.sd_model.cond_stage_model.to(devices.device)
                     shared.sd_model.first_stage_model.to(devices.device)
 
-                    p = processing.StableDiffusionProcessingTxt2Img(
+                    p = processing.SDProcessingTxt2Img(
                         sd_model=shared.sd_model,
                         do_not_save_grid=True,
                         do_not_save_samples=True,

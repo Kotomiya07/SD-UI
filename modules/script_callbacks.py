@@ -19,7 +19,7 @@ class ImageSaveParams:
         """the PIL image itself"""
 
         self.p = p
-        """p object with processing parameters; either StableDiffusionProcessing or an object with same fields"""
+        """p object with processing parameters; either SDProcessing or an object with same fields"""
 
         self.filename = filename
         """name of file that the image would be saved to"""

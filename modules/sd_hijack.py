@@ -165,7 +165,7 @@ def undo_weighted_forward(sd_model):
         pass
 
 
-class StableDiffusionModelHijack:
+class SDModelHijack:
     fixes = None
     layers = None
     circular_enabled = False
@@ -372,7 +372,7 @@ def add_circular_option_to_conv_2d():
     torch.nn.Conv2d.__init__ = conv2d_constructor_circular
 
 
-model_hijack = StableDiffusionModelHijack()
+model_hijack = SDModelHijack()
 
 
 def register_buffer(self, name, attr):

@@ -164,4 +164,4 @@ class CompVisSampler(sd_samplers_common.Sampler):
 
 
 sys.modules['modules.sd_samplers_compvis'] = sys.modules[__name__]
-VanillaStableDiffusionSampler = CompVisSampler  # temp. compatibility with older extensions
+VanillaSDSampler = CompVisSampler  # temp. compatibility with older extensions

@@ -559,7 +559,7 @@ model_data = SdModelData()
 
 def get_empty_cond(sd_model):
 
-    p = processing.StableDiffusionProcessingTxt2Img()
+    p = processing.SDProcessingTxt2Img()
     extra_networks.activate(p, {})
 
     if hasattr(sd_model, 'conditioner'):
